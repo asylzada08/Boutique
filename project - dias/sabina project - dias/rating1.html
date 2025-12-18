@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handbag - Yves Saint Laurent</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theme-dark': '#000000',
+                        'theme-light': '#FFFFFF', 
+                        'accent-yellow': '#FFD700', // Золотой акцент для логотипа YSL
+                        'accent-pink': '#E4C9D9', // Розовый для иконок пользователей в отзывах
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        /* Стилизация placeholder для поиска */
+        ::placeholder {
+            color: rgba(0, 0, 0, 0.7);
+        }
+        /* Тонкая настройка скроллбара */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ccc; 
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans">
+
+    <!-- HEADER -->
+    <!-- Светлая шапка с черными границами -->
+    <header class="border-b border-black/80 px-4 py-4 md:px-12 flex items-center justify-between sticky top-0 bg-white z-50">
+        <!-- Logo/Title -->
+        <h1 class="text-3xl md:text-4xl font-serif tracking-wide w-full md:w-auto text-left">Handbag</h1>
+
+        <div class="flex items-center gap-6 md:gap-10 w-full md:w-auto justify-end">
+            <!-- Search -->
+            <div class="relative group border border-black/80 rounded-sm p-1">
+                <input type="text" placeholder="Search" class="bg-transparent outline-none text-black w-24 md:w-40 transition-all placeholder-black/70 text-sm md:text-base pr-6">
+                <i class="ph ph-magnifying-glass absolute right-1 top-2 text-xl text-black"></i>
+            </div>
+
+            <!-- Icons (с границами) -->
+            <div class="flex items-center gap-4 text-2xl md:text-3xl h-8">
+                <button class="hover:opacity-70 border border-black p-1 rounded-sm"><i class="ph ph-shopping-cart"></i></button>
+                <button class="hover:opacity-70 border border-black p-1 rounded-sm"><i class="ph ph-heart"></i></button>
+                <button class="hover:opacity-70 border border-black p-1 rounded-sm"><i class="ph ph-user"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-6 md:p-12 space-y-16">
+        
+        <!-- SECTION 1: PRODUCT INFO -->
+        <section class="flex flex-col lg:flex-row gap-10 md:gap-20 items-start">
+            
+            <!-- Product Image -->
+            <div class="w-full lg:w-1/2 p-6 flex items-center justify-center border border-black/10">
+                <!-- Фото сумки -->
+                <img src="allp/saintl.png" 
+                     alt="Yves Saint Laurent Handbag" 
+                     class="w-full h-auto max-h-[500px] object-contain">
+            </div>
+
+            <!-- Product Details -->
+            <div class="w-full lg:w-1/2 flex flex-col justify-center pt-4 lg:pt-0">
+                <h2 class="text-4xl md:text-5xl font-serif mb-2">Yves Saint Laurent</h2>
+                <p class="text-3xl md:text-4xl font-serif mb-8 text-gray-700">650$</p>
+
+                <!-- Button (Рамка) -->
+                <button class="w-full border border-black text-black font-serif tracking-[0.15em] py-4 hover:bg-black hover:text-white transition-colors mb-8 text-xl uppercase">
+                    INCLUDE
+                </button>
+                
+                <!-- Secondary Title and Description -->
+                <h3 class="text-xl font-serif mb-3 border-b border-black pb-1">Saint Laurent Le 5 à 7 Bag</h3>
+
+                <!-- Description -->
+                <p class="text-base md:text-lg leading-relaxed text-gray-700 font-sans text-justify md:text-left">
+                    Made from smooth black calfskin, this Saint Laurent bag combines minimalism with timeless Parisian style. Finished with a gold YSL logo and structured shape, it's ideal for both day and night.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: RATINGS & REVIEWS -->
+        <section class="flex flex-col lg:flex-row gap-12 md:gap-20 border-t border-black/20 pt-16">
+            
+            <!-- LEFT: RATING OVERVIEW -->
+            <div class="w-full lg:w-1/3">
+                <h3 class="text-4xl md:text-5xl font-serif text-center mb-4">Rating Overview</h3>
+                <div class="flex items-center justify-center gap-3 mb-8 md:mb-12">
+                    <span class="text-4xl md:text-5xl font-serif">5.0</span>
+                    <i class="ph-fill ph-star text-yellow-500 text-4xl md:text-5xl"></i>
+                </div>
+
+                <!-- Rating Bars (Белые/Серые полосы) -->
+                <div class="space-y-4 px-2 md:px-0">
+                    <!-- 5 Star -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">5</span>
+                        <i class="ph-fill ph-star text-yellow-500 text-xl"></i>
+                        <div class="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden border border-black/10">
+                            <div class="h-full bg-gray-400 w-[95%] rounded-full"></div>
+                        </div>
+                        <span class="text-2xl font-serif w-8 text-right">16</span>
+                    </div>
+                     <!-- 4 Star -->
+                     <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">4</span>
+                        <i class="ph-fill ph-star text-yellow-500 text-xl"></i>
+                        <div class="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden border border-black/10">
+                            <div class="h-full bg-gray-400 w-[60%] rounded-full"></div>
+                        </div>
+                        <span class="text-2xl font-serif w-8 text-right">10</span>
+                    </div>
+                     <!-- 3 Star -->
+                     <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">3</span>
+                        <i class="ph-fill ph-star text-yellow-500 text-xl"></i>
+                        <div class="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden border border-black/10">
+                            <div class="h-full bg-gray-400 w-[20%] rounded-full"></div>
+                        </div>
+                        <span class="text-2xl font-serif w-8 text-right">3</span>
+                    </div>
+                     <!-- 2 Star -->
+                     <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">2</span>
+                        <i class="ph-fill ph-star text-yellow-500 text-xl"></i>
+                        <div class="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden border border-black/10">
+                            <!-- Пусто -->
+                        </div>
+                        <span class="text-2xl font-serif w-8 text-right">0</span>
+                    </div>
+                     <!-- 1 Star -->
+                     <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">1</span>
+                        <i class="ph-fill ph-star text-yellow-500 text-xl"></i>
+                        <div class="flex-1 h-4 bg-gray-100 rounded-full overflow-hidden border border-black/10">
+                            <!-- Пусто -->
+                        </div>
+                        <span class="text-2xl font-serif w-8 text-right">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: REVIEWS & PHOTOS -->
+            <div class="w-full lg:w-2/3 lg:pl-12">
+                
+                <!-- User Photos Grid -->
+                <div class="grid grid-cols-3 gap-4 mb-10">
+                    <div class="aspect-[4/3] overflow-hidden border border-black/10 rounded-lg">
+                        <img src="allp/rev1.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-[4/3] overflow-hidden border border-black/10 rounded-lg">
+                        <img src="allp/rev2.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-[4/3] overflow-hidden border border-black/10 rounded-lg">
+                        <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-150530.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+
+                <!-- Reviews List -->
+                <div class="space-y-10 border-l border-black/10 pl-6">
+                    
+                    <!-- Review 1 -->
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-3">
+                                <!-- Иконка пользователя с розовым фоном -->
+                                <div class="w-10 h-10 rounded-full bg-accent-pink flex items-center justify-center text-black">
+                                    <i class="ph ph-user text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif text-lg leading-none">Anna</h4>
+                                    <span class="text-xs text-gray-500">Monday, 3:24 pm</span>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-500 text-sm">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm font-light text-gray-700 leading-relaxed">
+                            The Yves Saint Laurent Le 5 à 7 Bag is pure elegance! The design is practical, the fabric feels incredibly soft, and the size is just perfect for everyday use. It elevates any outfit instantly. I'm beyond happy with my purchase.
+                        </p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-accent-pink flex items-center justify-center text-black">
+                                    <i class="ph ph-user text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif text-lg leading-none">Stephany</h4>
+                                    <span class="text-xs text-gray-500">Thursday, 9:00 pm</span>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-500 text-sm">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph ph-star text-black/20"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm font-light text-gray-700 leading-relaxed">
+                            My friend and I ordered matching Yves Saint Laurent bags from Zenna — we were so excited! The bags are gorgeous, high-quality, and look very elegant. However, the exact colors we received were not the ones we ordered, which was disappointing. Still, the bags themselves are stunning, so 4 stars.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-black/80 py-8 text-center bg-white mt-auto">
+        <h2 class="text-4xl font-serif text-black">Zenna</h2>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Heeled Sandals Catalog</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* General Reset */
+
+        * {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+
+        body {
+
+            background-color: #000000; /* Deep black background */
+
+            font-family: 'Playfair Display', serif;
+
+            color: white;
+
+            padding: 20px;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+
+
+        /* Main Container with white border */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 1400px;
+
+            border: 2px solid white;
+
+            padding: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+
+        /* HEADER */
+
+        header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 30px;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Subtle separator */
+
+        }
+
+
+
+        h1 {
+
+            font-size: 3rem;
+
+            font-weight: 400;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+
+        .header-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+        }
+
+
+
+        /* Search Bar styling */
+
+        .search-container {
+
+            position: relative;
+
+            margin-right: 10px;
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+
+        .search-input {
+
+            background: transparent;
+
+            border: none;
+
+            border-bottom: 1px solid white;
+
+            color: white;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.2rem;
+
+            padding: 5px 30px 5px 5px; /* Adjusted padding for typing */
+
+            outline: none;
+
+            width: 150px;
+
+            text-align: left; /* Text aligns left like standard input */
+
+        }
+
+
+
+        .search-input::placeholder {
+
+            color: rgba(255, 255, 255, 0.8);
+
+            opacity: 1;
+
+        }
+
+
+
+        .search-icon {
+
+            position: absolute;
+
+            right: 0;
+
+            top: 5px;
+
+            width: 18px;
+
+            height: 18px;
+
+            stroke: white;
+
+            stroke-width: 2;
+
+            fill: none;
+
+            pointer-events: none; /* Allows clicking through icon to input */
+
+        }
+
+
+
+        /* Icons Group */
+
+        .icons {
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: center;
+
+            border-left: 1px solid white;
+
+            padding-left: 30px;
+
+            height: 40px;
+
+        }
+
+
+
+        .icon {
+
+            width: 28px;
+
+            height: 28px;
+
+            fill: white;
+
+            cursor: pointer;
+
+        }
+
+
+
+        /* PRODUCT GRID */
+
+        .product-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 30px 20px; /* Vertical gap larger */
+
+            padding: 40px 30px;
+
+        }
+
+
+
+        .product-card {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+        }
+
+
+
+        .product-title {
+
+            font-size: 1.3rem;
+
+            margin-bottom: 15px;
+
+            white-space: nowrap;
+
+        }
+
+
+
+        .image-container {
+
+            width: 100%;
+
+            aspect-ratio: 1/1; /* Square images for shoes */
+
+            background-color: white; /* White background for product images */
+
+            margin-bottom: 15px;
+
+            overflow: hidden;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 10px;
+
+        }
+
+    
+
+        .image-container img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain; /* Keep the whole shoe visible */
+
+            transition: transform 0.3s ease;
+
+        }
+
+
+
+        .image-container:hover img {
+
+            transform: scale(1.05);
+
+        }
+
+
+
+        .price {
+
+            font-size: 1.6rem;
+
+            margin-top: 5px;
+
+        }
+
+
+
+        /* FOOTER */
+
+        footer {
+
+            border-top: 1px solid white;
+
+            padding: 20px;
+
+            text-align: center;
+
+            font-size: 2.5rem;
+
+            width: 100%;
+
+            margin-top: auto;
+
+            letter-spacing: 1px;
+
+        }
+
+
+
+        /* Responsive adjustments */
+
+        @media (max-width: 1200px) {
+
+            .product-grid {
+
+                grid-template-columns: repeat(3, 1fr);
+
+            }
+
+            h1 { font-size: 2.5rem; }
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            header { flex-direction: column; gap: 20px; }
+
+            .icons { border-left: none; padding-left: 0; }
+
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+
+        }
+
+    
+
+        @media (max-width: 480px) {
+
+            .product-grid { grid-template-columns: 1fr; }
+
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+
+        <header>
+
+            <h1>Heeled sandals</h1>
+
+            <div class="header-right">
+
+                <div class="search-container">
+
+                    <input type="text" class="search-input" placeholder="Search">
+
+                    <svg class="search-icon" viewBox="0 0 24 24">
+
+                        <circle cx="11" cy="11" r="8"></circle>
+
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+
+                    </svg>
+
+                </div>
+
+                <div class="icons">
+
+                    <svg class="icon" viewBox="0 0 24 24">
+
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+
+                    </svg>
+
+                    <svg class="icon" viewBox="0 0 24 24">
+
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+
+                    </svg>
+
+                    <svg class="icon" viewBox="0 0 24 24">
+
+                        <circle cx="12" cy="12" r="10" fill="white" fill-opacity="0.3"/>
+
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" transform="scale(0.8) translate(3,3)"/>
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <div class="product-grid">
+
+            <div class="product-card">
+
+                <div class="product-title">Velvet Ocean</div>
+
+                <div class="image-container">
+
+                    <img src="allp/velveto.png" alt="Velvet Ocean">
+
+                </div>
+
+                <div class="price">750$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Midnight Charm</div>
+
+                <div class="image-container">
+
+                    <img src="allp/midnightc.png" alt="Midnight Charm">
+
+                </div>
+
+                <div class="price">750$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Champagne Shine</div>
+
+                <div class="image-container">
+
+                    <img src="allp/champagnes.png" alt="Champagne Shine">
+
+                </div>
+
+                <div class="price">900$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Blush Velvet</div>
+
+                <div class="image-container">
+
+                    <img src="allp/blushv.png" alt="Blush Velvet">
+
+                </div>
+
+                <div class="price">750$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Snow Grace</div>
+
+                <div class="image-container">
+
+                    <img src="allp/snowg.png" alt="Snow Grace">
+
+                </div>
+
+                <div class="price">700$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Golden Bloom</div>
+
+                <div class="image-container">
+
+                    <img src="allp/goldenb.png" alt="Golden Bloom">
+
+                </div>
+
+                <div class="price">700$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">White Whisper</div>
+
+                <div class="image-container">
+
+                    <img src="allp/whitew.png" alt="White Whisper">
+
+                </div>
+
+                <div class="price">650$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Floral Symphony</div>
+
+                <div class="image-container">
+
+                    <img src="allp/florals.png" alt="Floral Symphony">
+
+                </div>
+
+                <div class="price">700$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Soft Rose</div>
+
+                <div class="image-container">
+
+                    <img src="allp/softr.png" alt="Soft Rose">
+
+                </div>
+
+                <div class="price">670$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Spring Meadow</div>
+
+                <div class="image-container">
+
+                    <img src="allp/springm.png" alt="Spring Meadow">
+
+                </div>
+
+                <div class="price">700$</div>
+
+            </div>
+
+        </div>
+
+
+
+        <footer>
+
+            Zenna
+
+        </footer>
+
+    </div>
+
+
+
+</body>
+
+</html>

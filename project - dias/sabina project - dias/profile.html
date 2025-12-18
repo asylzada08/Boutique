@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile and Purchase History</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-custom-pink { background-color: #F299D3; }
+        .bg-custom-pink-light { background-color: #F9D6EB; }
+        .text-custom-pink { color: #F299D3; }
+        .border-custom-pink { border-color: #F299D3; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="border-b border-black flex items-center h-20 px-4 md:px-0 bg-white sticky top-0 z-50">
+        <div class="flex-1 flex items-center h-full">
+            <div class="w-16 h-full flex items-center justify-center border-r-0 md:border-r border-transparent md:border-transparent cursor-pointer">
+                <i class="ph ph-list text-3xl"></i>
+            </div>
+            <h1 class="text-2xl md:text-4xl font-serif ml-4 md:ml-8 truncate">Profile and Purchase history</h1>
+        </div>
+
+        <div class="flex items-center h-full">
+            <div class="px-6 h-full flex items-center justify-center">
+                <i class="ph-fill ph-user-circle text-4xl"></i>
+            </div>
+            <div class="w-20 md:w-24 h-full border-l border-black flex items-center justify-center">
+                <i class="ph-fill ph-heart text-3xl md:text-4xl"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-[1400px] mx-auto w-full p-4 md:p-10 flex flex-col lg:flex-row gap-8 md:gap-12">
+
+        <aside class="w-full lg:w-[400px] shrink-0">
+            <div class="border border-black rounded-[2.5rem] p-6 pb-10 flex flex-col items-center shadow-sm bg-white h-full relative">
+
+                <div class="relative mt-4 mb-4">
+                    <div class="w-40 h-40 rounded-full border-[3px] border-custom-pink p-1.5">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop"
+                             alt="Profile"
+                             class="w-full h-full object-cover rounded-full filter brightness-90">
+                    </div>
+                    <button class="absolute bottom-2 right-2 bg-white rounded-md p-1 border border-black shadow-sm hover:bg-gray-50 transition">
+                        <i class="ph ph-pencil-simple text-lg"></i>
+                    </button>
+                </div>
+
+                <h2 class="text-3xl font-serif text-center text-black mb-1">Aria Lane</h2>
+                <p class="text-gray-400 text-lg font-serif mb-10">Buyer</p>
+
+                <div class="w-full space-y-6 px-4">
+                    <a href="#" class="flex items-center group cursor-pointer">
+                        <div class="w-12 h-12 bg-custom-pink-light rounded-full flex items-center justify-center text-black group-hover:bg-custom-pink transition-colors">
+                            <i class="ph ph-user text-2xl"></i>
+                        </div>
+                        <span class="ml-4 text-base font-medium">Edit Profile</span>
+                        <i class="ph ph-caret-right ml-auto text-2xl text-black"></i>
+                    </a>
+
+                    <a href="#" class="flex items-center group cursor-pointer">
+                        <div class="w-12 h-12 bg-custom-pink-light rounded-full flex items-center justify-center text-black group-hover:bg-custom-pink transition-colors">
+                            <i class="ph ph-bell text-2xl"></i>
+                        </div>
+                        <span class="ml-4 text-base font-medium">Notification</span>
+                        <i class="ph ph-caret-right ml-auto text-2xl text-black"></i>
+                    </a>
+
+                    <a href="#" class="flex items-center group cursor-pointer">
+                        <div class="w-12 h-12 bg-custom-pink-light rounded-full flex items-center justify-center text-black group-hover:bg-custom-pink transition-colors">
+                            <i class="ph ph-map-pin text-2xl"></i>
+                        </div>
+                        <span class="ml-4 text-base font-medium">Shipping Address</span>
+                        <i class="ph ph-caret-right ml-auto text-2xl text-black"></i>
+                    </a>
+
+                    <a href="#" class="flex items-center group cursor-pointer">
+                        <div class="w-12 h-12 bg-custom-pink-light rounded-full flex items-center justify-center text-black group-hover:bg-custom-pink transition-colors">
+                            <i class="ph ph-lock-key text-2xl"></i>
+                        </div>
+                        <span class="ml-4 text-base font-medium">Change Password</span>
+                        <i class="ph ph-caret-right ml-auto text-2xl text-black"></i>
+                    </a>
+                </div>
+
+                <div class="mt-auto pt-12 w-full flex justify-center">
+                    <button class="bg-custom-pink hover:bg-pink-400 transition text-black px-8 py-2.5 rounded-lg flex items-center gap-2 font-medium">
+                        <i class="ph ph-sign-out text-xl"></i>
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <section class="flex-1 space-y-8">
+
+            <div class="border border-black rounded-[2.5rem] p-6 md:p-8 bg-white relative">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <div>
+                        <p class="text-gray-400 text-xl font-serif mb-1">Order ID</p>
+                        <div class="flex items-center gap-2">
+                            <i class="ph-fill ph-bag text-xl"></i>
+                            <span class="text-2xl font-serif">CTP-89765</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs md:text-sm border border-gray-200 rounded-full px-1 py-1 bg-gray-50 self-end md:self-auto">
+                        <span class="text-gray-400 px-2">Estimated arrival: 28 May 2025</span>
+                        <div class="flex items-center gap-1 bg-white border border-gray-200 rounded-full px-2 py-1 shadow-sm">
+                            <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                            <span class="text-gray-600">On Delivery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+                    <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-1.5 w-full md:w-auto">
+                        <i class="ph ph-bus text-lg"></i>
+                        <span class="text-sm">LA, California, USA.</span>
+                    </div>
+
+                    <div class="flex-1 flex justify-center items-center w-full px-4">
+                        <div class="h-[1px] bg-black w-full max-w-[200px] relative">
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[5px] border-t-transparent border-l-[10px] border-l-black border-b-[5px] border-b-transparent"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-1.5 w-full md:w-auto">
+                        <i class="ph ph-map-pin text-lg"></i>
+                        <span class="text-sm">Norway, Bergen</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="w-24 h-24 md:w-32 md:h-32 border border-gray-200 rounded-2xl p-2 flex items-center justify-center shrink-0">
+                        <img src="allp/whitew.png"
+                             alt="Shoes" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div class="flex flex-col justify-center font-serif">
+                        <h3 class="text-lg md:text-xl text-black mb-1">White Whisper</h3>
+                        <p class="text-lg mb-1">750$</p>
+                        <p class="text-base text-gray-700">Size: 7.5-8</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-black rounded-[2.5rem] p-6 md:p-8 bg-white relative">
+                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <div>
+                        <p class="text-gray-400 text-xl font-serif mb-1">Order ID</p>
+                        <div class="flex items-center gap-2">
+                            <i class="ph-fill ph-bag text-xl"></i>
+                            <span class="text-2xl font-serif">CTP-89765</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs md:text-sm border border-gray-200 rounded-full px-1 py-1 bg-gray-50 self-end md:self-auto">
+                        <span class="text-gray-400 px-2">Estimated arrival: 28 May 2025</span>
+                        <div class="flex items-center gap-1 bg-white border border-gray-200 rounded-full px-2 py-1 shadow-sm">
+                            <div class="w-2 h-2 rounded-full bg-red-400"></div>
+                            <span class="text-gray-600">On Delivery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+                    <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-1.5 w-full md:w-auto">
+                        <i class="ph ph-bus text-lg"></i>
+                        <span class="text-sm">Seattle, Washington, US</span>
+                    </div>
+
+                    <div class="flex-1 flex justify-center items-center w-full px-4">
+                        <div class="h-[1px] bg-black w-full max-w-[200px] relative">
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[5px] border-t-transparent border-l-[10px] border-l-black border-b-[5px] border-b-transparent"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-1.5 w-full md:w-auto">
+                        <i class="ph ph-map-pin text-lg"></i>
+                        <span class="text-sm">Norway, Bergen</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="w-24 h-24 md:w-32 md:h-32 border border-gray-200 rounded-2xl p-2 flex items-center justify-center shrink-0 bg-gray-50">
+                        <img src="allp/prada.png"
+                             alt="Bag" class="max-w-full max-h-full object-contain mix-blend-multiply">
+                    </div>
+                    <div class="flex flex-col justify-center font-serif">
+                        <h3 class="text-lg md:text-xl text-black mb-1">Prada Cleo Bag</h3>
+                        <p class="text-lg mb-1">600$</p>
+                        <p class="text-base text-gray-700">Color: Pink</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

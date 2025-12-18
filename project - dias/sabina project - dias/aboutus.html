@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Zenna</title>
+    <!-- Загрузка Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Настройка шрифта Inter, который используется по умолчанию в Tailwind */
+        html {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Пользовательские стили для имитации точного вида, включая границы */
+        .content-container {
+            /* Цвет фона для текстового блока, немного светлее, чем серый 200 */
+            --light-gray: #E0E0E0;
+        }
+
+        /* Стиль для рамки, чтобы имитировать черную обводку по краям */
+        .page-outline {
+            box-shadow: 0 0 0 1px black;
+        }
+        
+        /* Стиль для имитации градиентного или разделенного фона */
+        .content-split {
+            /* Заливка фоном контейнера текста */
+            background-color: var(--light-gray);
+            /* Убедимся, что контейнер изображения имеет белый фон, как на картинке */
+            background-image: linear-gradient(to right, white 50%, var(--light-gray) 50%);
+        }
+
+        /* Фиксированная высота для контейнера изображения, чтобы текст и изображение были на одном уровне */
+        .image-container {
+            min-height: 500px; /* Достаточно высокая, чтобы вместить текст */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 flex justify-center p-4 sm:p-8">
+
+    <!-- Основной контейнер, ограничивающий ширину и добавляющий общую черную рамку -->
+    <div class="content-container w-full max-w-5xl page-outline bg-white rounded-lg overflow-hidden">
+
+        <!-- 1. Заголовок (Top Banner) -->
+        <header class="bg-gray-800 text-white p-4 sm:p-6 shadow-md">
+            <h1 class="text-4xl sm:text-5xl font-light tracking-wide pl-2 sm:pl-4">About us</h1>
+        </header>
+
+        <!-- 2. Основное содержание (Image and Text Split) -->
+        <main class="flex flex-col lg:flex-row content-split">
+            
+            <!-- Левая часть: Изображение -->
+            <!-- Используем flex-1 и w-full для адаптивности. На больших экранах: половина ширины. На маленьких: полная ширина. -->
+            <div class="image-container w-full lg:w-1/2 flex-none bg-white relative">
+                <!-- Заглушка для изображения, стилизованная под оригинальное фото (высокое, в белом платье) -->
+                <img 
+                    src="https://placehold.co/500x700/D4D4D4/262626?text=Model+in+White"
+                    alt="Модель в белом платье"
+                    class="object-cover h-full w-full opacity-0"
+                    onload="this.style.opacity=1;"
+                    onerror="this.src='https://placehold.co/500x700/D4D4D4/262626?text=Model+in+White';"
+                >
+                <!-- Стиль, имитирующий положение модели на оригинальном изображении -->
+                <div class="absolute inset-0 flex items-end justify-start">
+                    <img 
+                        src="https://placehold.co/500x700/D4D4D4/262626?text=Model+in+White" 
+                        alt="Модель в белом платье"
+                        class="object-cover h-full w-full lg:max-w-full"
+                        style="object-position: 25% center;"
+                    >
+                    <!-- Настоящее изображение с обрезкой, имитирующее оригинал -->
+                    <img src="allp/modelab.png"
+                        alt="Модель в белом платье"
+                        class="object-cover h-full w-full absolute top-0 left-0"
+                        style="object-position: top center;"
+                    >
+                    <!-- Тень/граница на изображении отсутствует, но есть черный контур по краям всего блока. -->
+                </div>
+            </div>
+
+            <!-- Правая часть: Текст -->
+            <div class="w-full lg:w-1/2 flex-none p-6 sm:p-10 lg:pl-12 lg:pr-10 text-gray-800 text-lg sm:text-xl font-serif leading-relaxed">
+                <p class="mb-4">
+                    Founded in 2023, our boutique was created by five friends — Sarbalina Assylzada, Kusayyin Sabina, Dzhumahmetov Amir, Nurasbek Alikhan, and Kumarov Yerzhas — who share one passion: bringing timeless elegance to every woman. 
+                </p>
+                <p class="mb-4">
+                    Sarbalina Assylzada, our Creative Director, leads the vision and design of each collection. Kusayyin Sabina manages branding and marketing, Dzhumahmetov Amir handles web and technology, Nurasbek Alikhan oversees logistics, and Kumarov Yerzhas directs finance and strategy.
+                </p>
+                <p>
+                    We curate a hand-picked selection of designer pieces from Christian Louboutin, Dior, Yves Saint Laurent, Jimmy Choo, and Prada, along with exclusive collaborations with Elie Saab. Our online boutique offers elegant gowns, handbags, and shoes — each chosen to inspire confidence and beauty. Every order is handled with care, because for us, fashion is more than style — it's a feeling of grace, confidence, and belonging.
+                </p>
+            </div>
+        </main>
+
+        <!-- 3. Нижний колонтитул (Bottom Banner/Footer) -->
+        <footer class="bg-gray-800 text-white p-4 sm:p-6 flex justify-center items-center shadow-inner">
+            <!-- Текст "Zenna" с черной рамкой, как на изображении -->
+            <span class="text-4xl sm:text-5xl font-light tracking-widest px-8 py-2 border border-black bg-gray-700/50">
+                Zenna
+            </span>
+        </footer>
+
+    </div>
+</body>
+</html>

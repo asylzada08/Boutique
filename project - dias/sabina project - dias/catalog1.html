@@ -1,0 +1,598 @@
+CATALOG 1 DRESS
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Evening Dress Catalog</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400\&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* General Reset */
+
+        * {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+
+        body {
+
+            background-color: #dcbcd1; /* Matches the dusty pink/lilac background */
+
+            font-family: 'Playfair Display', serif;
+
+            color: white;
+
+            padding: 20px;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+
+
+        /* Main Container to simulate the bordered look */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 1400px;
+
+            border: 2px solid white;
+
+            padding: 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+
+        /* HEADER */
+
+        header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 15px 30px;
+
+            border-bottom: 2px solid white;
+
+        }
+
+
+
+        h1 {
+
+            font-size: 3rem;
+
+            font-weight: 400;
+
+            letter-spacing: 1px;
+
+        }
+
+
+
+        .header-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+        }
+
+
+
+        /* Search Bar styling */
+
+        .search-container {
+
+            position: relative;
+
+            margin-right: 20px;
+
+        }
+
+
+
+        .search-input {
+
+            background: transparent;
+
+            border: none;
+
+            border-bottom: 1px solid white;
+
+            color: white;
+
+            font-family: 'Playfair Display', serif;
+
+            font-size: 1.2rem;
+
+            padding: 5px 30px 5px 5px;
+
+            outline: none;
+
+            width: 150px;
+
+        }
+
+
+
+        .search-input::placeholder {
+
+            color: rgba(255, 255, 255, 0.8);
+
+        }
+
+
+
+        .search-icon {
+
+            position: absolute;
+
+            right: 5px;
+
+            top: 5px;
+
+            width: 18px;
+
+            height: 18px;
+
+            stroke: white;
+
+            stroke-width: 2;
+
+            fill: none;
+
+        }
+
+
+
+        /* Icons Group */
+
+        .icons {
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: center;
+
+            border-left: 1px solid white; /* Thin separator line */
+
+            padding-left: 30px;
+
+            height: 40px;
+
+        }
+
+
+
+        .icon {
+
+            width: 28px;
+
+            height: 28px;
+
+            fill: white;
+
+            cursor: pointer;
+
+        }
+
+
+
+        /* PRODUCT GRID */
+
+        .product-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+
+            gap: 20px;
+
+            padding: 30px;
+
+        }
+
+
+
+        .product-card {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+        }
+
+
+
+        .product-title {
+
+            font-size: 1.4rem;
+
+            margin-bottom: 10px;
+
+            white-space: nowrap; /* Keep title on one line if possible */
+
+        }
+
+
+
+        .image-container {
+
+            width: 100%;
+
+            aspect-ratio: 3/4; /* Vertical rectangle shape for dresses */
+
+            background-color: #f0f0f0; /* Fallback color */
+
+            margin-bottom: 10px;
+
+            overflow: hidden;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            /* In a real scenario, you'd use <img> tags. Here we use backgrounds or placeholders */
+
+            position: relative;
+
+        }
+
+    
+
+        .image-container img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+
+        .price {
+
+            font-size: 1.8rem;
+
+            margin-top: 5px;
+
+        }
+
+
+
+        /* FOOTER */
+
+        footer {
+
+            border-top: 2px solid white;
+
+            padding: 15px;
+
+            text-align: center;
+
+            font-size: 2.5rem;
+
+            width: 100%;
+
+            margin-top: auto; /* Push to bottom if content is short */
+
+        }
+
+
+
+        /* Responsive adjustments */
+
+        @media (max-width: 1200px) {
+
+            .product-grid {
+
+                grid-template-columns: repeat(3, 1fr);
+
+            }
+
+            h1 { font-size: 2.5rem; }
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            header { flex-direction: column; gap: 20px; }
+
+            .icons { border-left: none; padding-left: 0; }
+
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+
+        }
+
+    
+
+        @media (max-width: 480px) {
+
+            .product-grid { grid-template-columns: 1fr; }
+
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+
+        <header>
+
+            <h1>Evening dress</h1>
+
+            <div class="header-right">
+
+                <div class="search-container">
+
+                    <input type="text" class="search-input" placeholder="Search">
+
+                    <svg class="search-icon" viewBox="0 0 24 24">
+
+                        <circle cx="11" cy="11" r="8"></circle>
+
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+
+                    </svg>
+
+                </div>
+
+                <div class="icons">
+
+                    <svg class="icon" viewBox="0 0 24 24">
+
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+
+                    </svg>
+
+                    <svg class="icon" viewBox="0 0 24 24">
+
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+
+                    </svg>
+
+                    <svg class="icon" viewBox="0 0 24 24">
+
+                        <circle cx="12" cy="12" r="10" fill="white" fill-opacity="0.3"/> <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" transform="scale(0.8) translate(3,3)"/>
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <div class="product-grid">
+
+            <div class="product-card">
+
+                <div class="product-title">Golden Sunrise</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-143405.png" alt="Golden Sunrise Dress">
+
+                </div>
+
+                <div class="price">450$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Red Velvet</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-143618.png" alt="Red Velvet Dress">
+
+                </div>
+
+                <div class="price">350$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Green Envy</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-143810.png" alt="Green Envy Dress">
+                    
+                    
+
+                </div>
+
+                <div class="price">370$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Midnight Elegance</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-143954.png" alt="Midnight Elegance Dress">
+
+                </div>
+
+                <div class="price">350$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">White Blossom</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-144055.png" alt="White Blossom Dress">
+
+                </div>
+
+                <div class="price">500$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Ruby Desire</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-144329.png" alt="Ruby Desire Dress">
+                </div>
+
+                <div class="price">350$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Lemon Glow</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-144545.png" alt="Lemon Glow Dress">
+
+                </div>
+
+                <div class="price">250$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Black Swan</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-144645.png" alt="Black Swan Dress">
+
+                </div>
+
+                <div class="price">250$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Scarlet Flame</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-144758.png" alt="Scarlet Flame Dress">
+
+                </div>
+
+                <div class="price">250$</div>
+
+            </div>
+
+
+
+            <div class="product-card">
+
+                <div class="product-title">Sunny Delight</div>
+
+                <div class="image-container">
+
+                    <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-145203.png" alt="Sunny Delight Dress">
+
+                </div>
+
+                <div class="price">250$</div>
+
+            </div>
+
+        </div>
+
+
+
+        <footer>
+
+            Zenna
+
+        </footer>
+
+    </div>
+
+
+
+</body>
+
+</html>

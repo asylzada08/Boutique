@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <style>
+        /* Сброс стилей и базовые настройки */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* ЛЕВАЯ ПАНЕЛЬ */
+        .left-panel {
+            flex: 0.8; /* Занимает чуть меньше места, чем правая, или 40% */
+            background: linear-gradient(180deg, #9e8b95 0%, #cbb1bf 100%); /* Градиент пыльно-розового */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .left-content {
+            margin-top: -50px; /* Чуть выше центра визуально */
+        }
+
+        .left-panel .small-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .left-panel h1 {
+            color: #000;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        /* ПРАВАЯ ПАНЕЛЬ */
+        .right-panel {
+            flex: 1.2; /* Занимает чуть больше места, 60% */
+            background-color: #000000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+        }
+
+        .login-form-container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .welcome-text {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 60px;
+            line-height: 1.4;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .form-group input {
+            width: 100%;
+            background: transparent;
+            border: 1px solid #666; /* Светло-серый бордер */
+            color: #fff;
+            padding: 15px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #cbb1bf;
+        }
+
+        /* КАСТОМНЫЙ ЧЕКБОКС */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            cursor: pointer;
+        }
+
+        /* Скрываем стандартный чекбокс */
+        .checkbox-group input[type="checkbox"] {
+            display: none;
+        }
+
+        /* Создаем свой стиль для чекбокса */
+        .custom-checkbox {
+            width: 35px;
+            height: 35px;
+            background-color: #a3909b; /* Цвет квадрата как на фото */
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Галочка (рисуем через CSS border) */
+        .custom-checkbox::after {
+            content: '';
+            width: 10px;
+            height: 18px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 4px; /* Небольшая коррекция позиции */
+            display: none; /* Скрыто по умолчанию */
+        }
+
+        /* Показываем галочку, когда чекбокс выбран */
+        .checkbox-group input:checked + .custom-checkbox::after {
+            display: block;
+        }
+        
+        /* Галочка видна по умолчанию для демо (как на картинке) */
+        .custom-checkbox.checked::after {
+            display: block;
+        }
+
+        .checkbox-text {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* КНОПКА */
+        .btn-submit {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            background-color: #b09ba6; /* Цвет кнопки как на фото */
+            color: white;
+            border: none;
+            font-size: 24px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #cbb1bf;
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .left-panel {
+                padding: 60px 20px;
+                min-height: 30vh;
+            }
+            
+            .right-panel {
+                padding: 40px 20px;
+            }
+
+            .left-panel h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Левая часть -->
+        <div class="left-panel">
+            <div class="left-content">
+                <div class="small-text">Sign in</div>
+                <h1>Glad to see you again!</h1>
+            </div>
+        </div>
+
+        <!-- Правая часть -->
+        <div class="right-panel">
+            <div class="login-form-container">
+                <div class="welcome-text">
+                    Welcome back! Please sign in to your account.
+                </div>
+
+                <form onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label for="username">User Name</label>
+                        <input type="text" id="username" name="username" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                    </div>
+
+                    <label class="checkbox-group">
+                        <!-- Добавил checked атрибут, чтобы выглядело как на картинке сразу -->
+                        <input type="checkbox" checked>
+                        <span class="custom-checkbox"></span>
+                        <span class="checkbox-text">Remember Me</span>
+                    </label>
+
+                    <a href="main.html" class="btn-submit">Sign in</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

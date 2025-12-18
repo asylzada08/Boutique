@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heeled Sandals - Product Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'theme-black': '#000000',
+                        'theme-gray': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000000;
+            color: white;
+        }
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans">
+
+    <header class="border-b border-white px-6 py-4 flex flex-col md:flex-row items-center justify-between sticky top-0 bg-black z-50">
+        <h1 class="text-3xl md:text-4xl font-serif tracking-wide mb-4 md:mb-0 w-full md:w-auto text-center md:text-left">Heeled sandals</h1>
+
+        <div class="flex items-center gap-6 md:gap-10 w-full md:w-auto justify-center md:justify-end">
+            <div class="relative group">
+                <input type="text" placeholder="Search" class="bg-transparent border-b border-gray-500 focus:border-white outline-none text-white w-32 md:w-48 pb-1 transition-all text-sm md:text-base">
+            </div>
+
+            <div class="flex items-center gap-4 text-2xl md:text-3xl border-l border-white/40 pl-6 md:pl-10 h-8">
+                <button class="hover:text-gray-300 transition"><i class="ph-fill ph-shopping-cart"></i></button>
+                <button class="hover:text-gray-300 transition"><i class="ph-fill ph-heart"></i></button>
+                <button class="hover:text-gray-300 transition"><i class="ph-fill ph-user-circle"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl mx-auto w-full p-6 md:p-12 space-y-16">
+
+        <section class="flex flex-col lg:flex-row gap-10 md:gap-20 items-start">
+
+            <div class="w-full lg:w-1/2 bg-white p-6 flex items-center justify-center">
+                <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-151041.png"
+                     alt="White Butterfly Heels"
+                     class="w-full h-auto max-h-[500px] object-contain">
+            </div>
+
+            <div class="w-full lg:w-1/2 flex flex-col justify-center pt-4 lg:pt-0">
+                <h2 class="text-4xl md:text-5xl font-serif mb-2">White Whisper</h2>
+                <p class="text-3xl md:text-4xl font-serif mb-8">750$</p>
+
+                <div class="w-full h-px bg-white/50 mb-8"></div>
+
+                <button class="w-full border border-white text-white font-serif tracking-[0.15em] py-4 hover:bg-white hover:text-black transition-colors mb-8 text-xl uppercase">
+                    Include
+                </button>
+
+                <p class="text-base md:text-lg leading-relaxed text-gray-300 font-serif text-justify md:text-left">
+                    Elegant high-heeled sandals crafted in white satin and adorned with sparkling crystal embellishments. The delicate spiral ankle straps and floral crystal details create a graceful, feminine look — perfect for special occasions or evening events.
+                </p>
+            </div>
+        </section>
+
+        <section class="flex flex-col lg:flex-row gap-12 md:gap-20 border-t border-white/20 pt-16">
+
+            <div class="w-full lg:w-1/3">
+                <h3 class="text-4xl md:text-5xl font-serif text-center mb-4">Rating Overview</h3>
+                <div class="flex items-center justify-center gap-3 mb-8 md:mb-12">
+                    <span class="text-4xl md:text-5xl font-serif">5.0</span>
+                    <i class="ph-fill ph-star text-yellow-400 text-4xl md:text-5xl"></i>
+                </div>
+
+                <div class="space-y-4 px-2 md:px-0">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">5</span>
+                        <i class="ph-fill ph-star text-yellow-400 text-xl"></i>
+                        <div class="flex-1 h-4 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-100/80 w-[100%] rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+                        </div>
+                        <span class="text-2xl font-serif w-8 text-right">16</span>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">4</span>
+                        <i class="ph-fill ph-star text-yellow-400 text-xl"></i>
+                        <div class="flex-1 h-4 bg-white rounded-full overflow-hidden"></div>
+                        <span class="text-2xl font-serif w-8 text-right">0</span>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">3</span>
+                        <i class="ph-fill ph-star text-yellow-400 text-xl"></i>
+                        <div class="flex-1 h-4 bg-white rounded-full overflow-hidden"></div>
+                        <span class="text-2xl font-serif w-8 text-right">0</span>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">2</span>
+                        <i class="ph-fill ph-star text-yellow-400 text-xl"></i>
+                        <div class="flex-1 h-4 bg-white rounded-full overflow-hidden"></div>
+                        <span class="text-2xl font-serif w-8 text-right">0</span>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        <span class="text-2xl font-serif w-4">1</span>
+                        <i class="ph-fill ph-star text-yellow-400 text-xl"></i>
+                        <div class="flex-1 h-4 bg-white rounded-full overflow-hidden"></div>
+                        <span class="text-2xl font-serif w-8 text-right">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-2/3 lg:pl-12">
+                <div class="grid grid-cols-3 gap-4 mb-10">
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img src="allp/revvv1.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img src="allp/revvv2.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-[3/4] overflow-hidden">
+                        <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-151444.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+
+                <div class="space-y-10">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-[#E4C9D9] flex items-center justify-center text-black">
+                                    <i class="ph ph-user text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif text-lg leading-none">Sara</h4>
+                                    <span class="text-xs text-gray-400">Saturday, 9:12 pm</span>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm font-light text-gray-300 leading-relaxed">
+                            These butterfly heels are absolutely breathtaking! The design is delicate and elegant, and the sparkling details make them look so luxurious. They fit perfectly and are surprisingly comfortable for high heels. I felt like a princess wearing them — 5 stars for Zenna!
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-[#E4C9D9] flex items-center justify-center text-black">
+                                    <i class="ph ph-user text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif text-lg leading-none">Linda</h4>
+                                    <span class="text-xs text-gray-400">Tuesday, 2:55 pm</span>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-sm font-light text-gray-300 leading-relaxed">
+                            I'm obsessed with these heels! The butterfly accents shimmer beautifully in the light, and the straps hold perfectly without discomfort. They're the perfect mix of glamour and femininity. Everyone asked where I got them — 5 well-deserved stars for Zenna!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-white/50 py-8 text-center bg-[#111111] mt-auto">
+        <h2 class="text-4xl font-serif text-white">Zenna</h2>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <!-- Использование элегантного шрифта Playfair Display для соответствия стилю -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;0,700&display=swap" rel="stylesheet">
+    <style>
+        /* Общие стили и сброс */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: white;
+            font-family: 'Playfair Display', serif;
+            color: black;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Контейнер страницы */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 25px;
+            height: 25px;
+            fill: black;
+            stroke: black;
+            stroke-width: 1.5;
+            cursor: pointer;
+        }
+        
+        /* Menu Icon (Hamburger) */
+        .menu-icon {
+            stroke: black;
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        /* MAIN CONTENT LAYOUT */
+        .main-content {
+            display: flex;
+            gap: 40px;
+            padding-top: 30px;
+        }
+
+        /* ORDER DETAILS (Left Column) */
+        .order-details {
+            flex-grow: 1;
+            max-width: 70%; /* Wider column for details */
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid black;
+            width: 100%;
+        }
+
+        /* Individual Order Item */
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid black;
+        }
+        
+        .item-image-container {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f8f8; /* Light background for visibility */
+        }
+        
+        .item-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* ИЗМЕНЕНИЯ ЗДЕСЬ ДЛЯ ВЫРАВНИВАНИЯ КОЛОНОК */
+        .item-info {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-name {
+            flex-grow: 1; /* Позволяет названию занимать все доступное пространство */
+            font-size: 1.1rem;
+            padding-right: 30px; /* Отступ перед первой колонкой цены */
+            min-width: 150px; /* Минимальная ширина, чтобы не сжималось слишком сильно */
+        }
+
+        .item-price {
+            width: 100px; /* Фиксированная ширина для выравнивания */
+            text-align: right;
+        }
+
+        .item-quantity {
+            width: 100px; /* Фиксированная ширина для выравнивания */
+            text-align: center;
+        }
+
+        .item-quantity select {
+            border: 1px solid black;
+            padding: 5px 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            width: 70px; /* Немного уменьшен размер селекта, но контейнер 100px */
+            text-align: center;
+            margin: 0 15px; 
+            background-color: white;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+        
+        .item-total {
+            width: 100px; /* Фиксированная ширина для выравнивания */
+            text-align: right;
+            font-weight: 600;
+        }
+        /* КОНЕЦ ВЫРАВНИВАНИЯ */
+
+        .delete-icon {
+            width: 15px;
+            height: 15px;
+            margin-left: 30px;
+            cursor: pointer;
+            stroke: black;
+            stroke-width: 1.5;
+            fill: none;
+        }
+        
+        /* ORDER SUMMARY (Right Column) */
+        .order-summary-box {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid black;
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid black;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        
+        .summary-total {
+            border-top: 1px solid black;
+            font-weight: 700;
+        }
+        
+        .checkout-button {
+            width: 100%;
+            background: none;
+            border: 1px solid black;
+            color: black;
+            padding: 10px 0;
+            margin-top: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .checkout-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* RECOMMENDATIONS - ИЗМЕНЕННЫЕ СТИЛИ ДЛЯ ТОЧНОГО СООТВЕТСТВИЯ ИЗОБРАЖЕНИЮ */
+        .recommendations {
+            margin-top: 60px;
+            padding: 0 0 40px 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px 20px;
+            padding-top: 20px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        /* Новый контейнер для названия и цены на одной линии */
+        .rec-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline; 
+            margin-bottom: 5px;
+            /* Убрано лишнее пространство, которое было в старых классах */
+        }
+        
+        /* Стиль для Названия (крупнее) */
+        .product-name-rec {
+            font-size: 1.1rem;
+            font-weight: 400; 
+            margin: 0;
+        }
+        
+        /* Стиль для Цены (мельче и немного приглушенно) */
+        .product-price-rec {
+            font-size: 1rem; 
+            font-weight: 400; 
+            color: #4b4b4b;
+        }
+        
+        /* Стили для Swatches */
+        .color-swatch-container {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px; /* Увеличиваем отступ от изображения */
+            margin-top: 5px;
+        }
+
+        .swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+
+        .swatch.black { background-color: black; }
+        .swatch.red { background-color: #A52A2A; }
+        .swatch.green { background-color: #006400; }
+        .swatch.purple { background-color: #800080; }
+        .swatch.pink { background-color: #FFC0CB; }
+        .swatch.navy { background-color: navy; }
+
+
+        .recommendation-image-container {
+            width: 100%;
+            aspect-ratio: 0.8 / 1; 
+            background-color: #f8f8f8;
+            margin-bottom: 0; /* Удаляем лишний отступ */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .recommendation-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Удаление старых стилей, которые конфликтовали */
+        .product-price, .product-name {
+            display: none; 
+        }
+
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid black;
+            padding: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            width: 100%;
+            margin-top: auto;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            .order-details {
+                max-width: 100%;
+            }
+            .order-summary-box {
+                width: 100%;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header-left {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .order-item {
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding-left: 0;
+            }
+            .item-info {
+                width: calc(100% - 120px);
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 10px;
+                margin-left: auto;
+            }
+            .item-image-container {
+                width: 80px;
+                height: 80px;
+                margin-right: 10px;
+            }
+            .item-name {
+                width: 100%;
+                margin-right: 0;
+            }
+            /* Сброс ширины для адаптивности */
+            .item-price, .item-quantity, .item-total {
+                width: auto;
+                text-align: left;
+            }
+            .delete-icon {
+                margin-left: 10px;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="header-left">
+                <!-- Hamburger Icon -->
+                <svg class="icon menu-icon" viewBox="0 0 24 24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+                <span class="header-title">Shopping Cart</span>
+            </div>
+            <div class="header-right">
+                <!-- Heart Icon (Filled) -->
+                <svg class="icon" style="stroke: none;" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <!-- User Icon (Outline) -->
+                 <svg class="icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="7" r="4"/>
+                    <path d="M12 15c-2.73 0-5.06 1.4-6.42 3.5.38.71 1.47 1.5 3.32 2h6.2c1.85-.5 2.94-1.29 3.32-2-1.36-2.1-3.69-3.5-6.42-3.5z"/>
+                </svg>
+            </div>
+        </header>
+
+        <!-- Main Content Area (Your Order & Summary) -->
+        <main class="main-content">
+            <!-- Left: Your Order -->
+            <section class="order-details">
+                <h2 class="section-title" style="border-bottom: 1px solid black;">Your Order</h2>
+                
+                <!-- Order Item 1 -->
+                <div class="order-item">
+                    <div class="item-image-container">
+                        <img class="item-image" src="allp/prada.png" alt="Prada Cleo Bag">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">Prada Cleo Crystal-Embellished Bag</div>
+                        <div class="item-price">600$</div>
+                        <div class="item-quantity">
+                            <select>
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="item-total">600$</div>
+                        <!-- Delete Icon (X) -->
+                        <svg class="delete-icon" viewBox="0 0 24 24">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Order Item 2 -->
+                <div class="order-item">
+                    <div class="item-image-container">
+                         <img class="item-image" src="allp/lemong.png" alt="Lemon Glow Dress">
+                    </div>
+                    <div class="item-info">
+                        <div class="item-name">Lemon Glow</div>
+                        <div class="item-price">250$</div>
+                        <div class="item-quantity">
+                            <select>
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="item-total">500$</div>
+                        <!-- Delete Icon (X) -->
+                        <svg class="delete-icon" viewBox="0 0 24 24">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Right: Order Summary -->
+            <aside class="order-summary-box">
+                <div class="summary-title">Order Summary</div>
+                
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <span>1100$</span>
+                </div>
+                
+                <div class="summary-line">
+                    <span>Shipping</span>
+                    <span>6$</span>
+                </div>
+                
+                <div class="summary-line summary-total">
+                    <span>Total</span>
+                    <span>1106$</span>
+                </div>
+
+                <button class="checkout-button">PROCEED TO CHECKOUT</button>
+            </aside>
+        </main>
+
+        <!-- You May Also Like Section -->
+        <section class="recommendations">
+            <h2 class="section-title">You may also like</h2>
+            
+            <div class="product-grid">
+                <!-- Rec Item 1: Bag -->
+                <div class="product-card">
+                    <div class="rec-card-header">
+                        <div class="product-name-rec">Saint Laurent Le 5 a 7</div>
+                        <div class="product-price-rec">650$</div>
+                    </div>
+                    <div class="color-swatch-container">
+                        <div class="swatch black"></div>
+                        <div class="swatch red"></div>
+                        <div class="swatch green" style="border: 1px solid black;"></div>
+                    </div>
+                    <div class="recommendation-image-container">
+                        <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-152014.png" alt="Saint Laurent Bag">
+                    </div>
+                </div>
+
+                <!-- Rec Item 2: Dress -->
+                <div class="product-card">
+                    <div class="rec-card-header">
+                        <div class="product-name-rec">Green Envy Dress</div>
+                        <div class="product-price-rec">370$</div>
+                    </div>
+                    <div class="color-swatch-container">
+                        <div class="swatch green" style="border: 1px solid black;"></div>
+                        <div class="swatch red"></div>
+                        <div class="swatch purple"></div>
+                    </div>
+                    <div class="recommendation-image-container">
+                         <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-143810.png" alt="Green Envy Dress">
+                    </div>
+                </div>
+
+                <!-- Rec Item 3: Clutch -->
+                <div class="product-card">
+                    <div class="rec-card-header">
+                        <div class="product-name-rec">Phase Eight Clutch Box</div>
+                        <div class="product-price-rec">400$</div>
+                    </div>
+                    <div class="color-swatch-container">
+                        <div class="swatch navy" style="border: 1px solid black;"></div>
+                        <div class="swatch red"></div>
+                        <div class="swatch pink"></div>
+                    </div>
+                    <div class="recommendation-image-container">
+                         <img src="https://a.imgfoto.host/2025/12/18/SNIMOK-EKRANA-2025-12-18-152111.png" alt="Clutch Box">
+                    </div>
+                </div>
+
+                <!-- Rec Item 4: Heels -->
+                <div class="product-card">
+                    <div class="rec-card-header">
+                        <div class="product-name-rec">Scarlet Step Heels</div>
+                        <div class="product-price-rec">750$</div>
+                    </div>
+                    <div class="color-swatch-container">
+                        <div class="swatch red" style="border: 1px solid black;"></div>
+                        <div class="swatch navy"></div>
+                        <div class="swatch purple"></div>
+                    </div>
+                    <div class="recommendation-image-container">
+                         <img src="allp/kablyk.png" alt="Scarlet Heels">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Footer -->
+        <footer>
+            Zenna
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenna Fashion</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Styles to match the exact look */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Thin elegant borders exactly like the image */
+        .thin-border {
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        /* Specific typography tweaking */
+        .hero-text {
+            font-weight: 300; /* Light font weight */
+            line-height: 1.15;
+            letter-spacing: 0.05em;
+        }
+
+        /* Custom underline/dash style for the title */
+        .dash {
+            display: inline-block;
+            width: 0.8em;
+            height: 2px;
+            background-color: white;
+            vertical-align: middle;
+            margin: 0 0.2em;
+        }
+
+        /* Image handling to mimic the cutout effect */
+        .model-image {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col">
+
+    <!-- Header / Top Navigation -->
+    <header class="flex justify-between items-start pt-4 px-4 w-full z-20 absolute top-0 left-0">
+        
+        <!-- Left Side Navigation -->
+        <div class="flex gap-3">
+            <a href="aboutus.html" class="thin-border px-5 py-2 text-sm uppercase tracking-wide hover:bg-white hover:text-black transition-colors">About us</a>
+            <div class="relative group">
+                <input type="text" placeholder="Search" class="thin-border bg-transparent text-white px-4 py-2 text-sm placeholder-gray-300 outline-none w-32 focus:w-48 transition-all">
+            </div>
+            <button class="thin-border px-5 py-2 text-sm uppercase tracking-wide flex items-center gap-2 hover:bg-white hover:text-black transition-colors">
+                Catalog
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Right Side Navigation -->
+        <div class="flex items-center gap-3">
+            <a href="signup.html" class="thin-border px-5 py-2 text-sm uppercase tracking-wide hover:bg-white hover:text-black transition-colors">Sign up</a>
+            <a href="signin.html" class="thin-border px-5 py-2 text-sm uppercase tracking-wide hover:bg-white hover:text-black transition-colors">Sign in</a>
+
+            <!-- Icons -->
+            <div class="flex gap-4 ml-2 items-center">
+                <button class="hover:text-gray-300 transition-colors">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                        <path d="M3 6h18"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                </button>
+                <button class="hover:text-gray-300 transition-colors">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex items-center relative w-full h-full overflow-hidden">
+        
+        <!-- Text Content -->
+        <div class="w-full pl-6 md:pl-10 lg:pl-14 z-10 mt-16 md:mt-0">
+            <h1 class="text-4xl md:text-6xl lg:text-[5.5rem] uppercase hero-text text-white leading-tight">
+                <span class="block">Elevate Your</span>
+                <span class="block">Nights <span class="dash"></span> Choose</span>
+                <span class="block">Stunning</span>
+                <span class="block">Evening Outfits</span>
+                <span class="block">With Us.</span>
+            </h1>
+        </div>
+
+        <!-- Model Image -->
+        <!-- Note: Using the user-provided image. 
+             In a real production environment, you would use a transparent PNG (cutout) 
+             to match the overlapping effect perfectly. -->
+        <div class="absolute right-0 bottom-0 h-full w-1/2 md:w-[45%] lg:w-[40%] flex items-end justify-end pointer-events-none z-0">
+             <!-- Using the uploaded image -->
+             <img src="allp/model11.png" 
+                alt="Модель в красном платье" 
+                class="h-[85%] w-full object-cover object-top mask-image-bottom"
+                style="mask-image: linear-gradient(to bottom, black 90%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%); object-position: top center;"
+             >
+        </div>
+    </main>
+
+    <!-- Footer / Bottom Bar -->
+    <footer class="w-full border-t border-white/50 py-4 z-20 bg-black/20 backdrop-blur-sm absolute bottom-0">
+        <div class="text-center">
+            <span class="serif-font text-3xl md:text-4xl tracking-wider">Zenna</span>
+        </div>
+    </footer>
+
+</body>
+</html>
